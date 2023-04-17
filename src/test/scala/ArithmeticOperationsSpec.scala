@@ -27,4 +27,11 @@ class ArithmeticOperationsSpec extends AnyFlatSpec {
     assert(actualValue == expectedValue)
   }
 
+  "operationsOnListOfOption" should "return exception as the division operation is not defined for List[Option[Int]]" in {
+    val invalidArithmeticOperation = "Division"
+    val listOfOption = List(Some(1), Some(2), Some(3))
+    assertThrows[NoSuchMethodException] (
+      arithmeticOperationsObject.operationsOnListOfOption(listOfOption, invalidArithmeticOperation)
+      )
+  }
 }
